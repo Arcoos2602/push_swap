@@ -6,11 +6,13 @@
 /*   By: tcordonn <tcordonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/15 13:15:25 by tcordonn          #+#    #+#             */
-/*   Updated: 2021/05/15 13:15:35 by tcordonn         ###   ########.fr       */
+/*   Updated: 2021/05/18 12:03:21 by tcordonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		rotate_a()
-{
+#include "push_swap.h"
 
+int		rotate_a(t_stack	*stk_a)
+{
+	stk_a->items[stk_a->top] = stk;
 }
