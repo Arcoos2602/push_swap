@@ -6,7 +6,7 @@
 /*   By: tcordonn <tcordonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/15 13:15:25 by tcordonn          #+#    #+#             */
-/*   Updated: 2021/05/18 12:03:21 by tcordonn         ###   ########.fr       */
+/*   Updated: 2021/06/16 12:31:24 by tcordonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int		rotate_a(t_stack	*stk_a)
 {
-	stk_a->items[stk_a->top] = stk;
+
 }
