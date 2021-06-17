@@ -6,7 +6,7 @@
 /*   By: tcordonn <tcordonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/15 10:33:43 by tcordonn          #+#    #+#             */
-/*   Updated: 2021/06/16 12:53:28 by tcordonn         ###   ########.fr       */
+/*   Updated: 2021/06/17 12:12:17 by tcordonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,19 +35,31 @@ void	init_stacks(t_stack *stk_a, t_stack *stk_b, int argc , char **argv)
 	stk_b->top = stk_b->max_size;
 }
 
-int		main(int argc, char **argv)
+int		main(int argc, char **argv) // check < int doublons et autre que chiffres
 {
 	t_stack		*stk_a;
 	t_stack		*stk_b;
 
+	//check
 	stk_a = malloc(sizeof(t_stack));
 	stk_b = malloc(sizeof(t_stack));
 	init_stacks(stk_a, stk_b, argc, argv);
 	push_b(stk_a, stk_b);
+	printf("%d\n", stk_b->top);
+	push_b(stk_a, stk_b);
+	push_b(stk_a, stk_b);
 	int		x = 0;
-	while (x <= stk_b->max_size)
+	printf("pile A :\n");
+	while (x <= stk_a->max_size)
+	{
+		printf("%d\n", stk_a->items[x]);
+		x++;
+	}
+	x = 0;
+	printf("pile B :\n");
+	/*while (x <= stk_b->max_size)
 	{
 		printf("%d\n", stk_b->items[x]);
 		x++;
-	}
+	}*/
 }
