@@ -6,13 +6,14 @@
 /*   By: tcordonn <tcordonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/15 10:54:34 by tcordonn          #+#    #+#             */
-/*   Updated: 2021/05/16 11:28:03 by tcordonn         ###   ########.fr       */
+/*   Updated: 2021/06/23 11:58:41 by tcordonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/include/libft.h"
 #include <unistd.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 typedef struct	s_stack
 {
