@@ -6,7 +6,7 @@
 /*   By: tcordonn <tcordonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/15 13:15:25 by tcordonn          #+#    #+#             */
-/*   Updated: 2021/06/16 12:31:24 by tcordonn         ###   ########.fr       */
+/*   Updated: 2021/06/24 18:50:54 by tcordonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,4 +15,9 @@
 int		rotate_a(t_stack	*stk_a)
 {
 
+}
+
+int		rotate_b(t_stack *stk_b)
+{
+	
 }
