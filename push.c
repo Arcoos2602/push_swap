@@ -6,7 +6,7 @@
 /*   By: tcordonn <tcordonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/15 11:21:53 by tcordonn          #+#    #+#             */
-/*   Updated: 2021/06/24 18:09:05 by tcordonn         ###   ########.fr       */
+/*   Updated: 2021/08/19 11:56:58 by tcordonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int		push_a(t_stack	*stk_a, t_stack *stk_b)
 {
+	ft_putstr_fd("pa\n", 1);
 	if (stk_a->items[stk_a->top] != '\0' || stk_b->items[stk_b->top] == '\0') // 2eme condition certainement inutile
 		return(-1);
 	stk_a->items[stk_b->top] = stk_b->items[stk_a->top];
@@ -27,6 +28,7 @@ int		push_a(t_stack	*stk_a, t_stack *stk_b)
 
 int		push_b(t_stack	*stk_a, t_stack *stk_b) // mis sur B
 {
+	ft_putstr_fd("pb\n", 1);
 	if (stk_b->items[stk_b->top] != '\0' || stk_a->items[stk_a->top] == '\0')
 		return (-1);
 	stk_b->items[stk_b->top] = stk_a->items[stk_a->top];

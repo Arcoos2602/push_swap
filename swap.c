@@ -6,7 +6,7 @@
 /*   By: tcordonn <tcordonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/15 11:16:22 by tcordonn          #+#    #+#             */
-/*   Updated: 2021/06/24 18:09:13 by tcordonn         ###   ########.fr       */
+/*   Updated: 2021/08/19 11:57:15 by tcordonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int		swap_b(t_stack	*stk_b)
 	int		top;
 
 	top = stk_b->top;
-	printf(" top %d\n", stk_b->top);
 	/*if ((stk_b->top != 0 && stk_b->items[top - 1] == 0))
 	{
 		printf("check\n");
