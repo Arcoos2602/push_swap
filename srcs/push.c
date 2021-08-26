@@ -6,11 +6,11 @@
 /*   By: tcordonn <tcordonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/15 11:21:53 by tcordonn          #+#    #+#             */
-/*   Updated: 2021/08/19 11:56:58 by tcordonn         ###   ########.fr       */
+/*   Updated: 2021/08/26 15:28:29 by tcordonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 int		push_a(t_stack	*stk_a, t_stack *stk_b)
 {

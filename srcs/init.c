@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcordonn <tcordonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/15 10:33:43 by tcordonn          #+#    #+#             */
-/*   Updated: 2021/08/19 13:31:19 by tcordonn         ###   ########.fr       */
+/*   Created: 2021/08/26 15:32:36 by tcordonn          #+#    #+#             */
+/*   Updated: 2021/08/26 21:26:26 by tcordonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <stdio.h>
+#include "../includes/push_swap.h"
 
-int		init_stacks(t_stack *stk_a, t_stack *stk_b, int argc , char **argv)
+int		init_stacks(t_stack *stk_a, t_stack *stk_b, char **argv)
 {
 	int		x;
 	int		y;
@@ -40,56 +39,54 @@ int		init_stacks(t_stack *stk_a, t_stack *stk_b, int argc , char **argv)
 	return (1);
 }
 
-void	print_stack(t_stack stk)
-{
-	int x;
-
-	x = -1;
-	while (x != stk_a->max_size)
-			printf("%d\n", stk.items[++x]);
-}
-
-int		check_arg(char **argv)
+int		check_arg(char **argv, int argc) /// gérer plusieurs nombres dans un seul argument
 {
 	int	x;
 	int	y;
+	int check;
 
 	x = 0;
-	y = 0;
-	while (argv[x++])
+	check = 0;
+	if (argc == 1)
+		return (-1);
+	while (argv[++x])
 	{
-		y = -1;
-		while (argv[x][++y])
+		y = 0;
+		while (argv[x][y])
 		{
+			while (ft_iswhitespace(argv[x][y]) && argv[x][y] != '\0')
+				y++;
 			if (ft_isdigit(argv[x][y]) == 0)
 				return (-1);
+			y++;
 		}
 	}
-}
-
-int		main(int argc, char **argv) // check < int doublons et autre que chiffres et print error\n
-{
-	t_stack		*stk_a;
-	t_stack		*stk_b;
-	int		x = -1;
-
-	stk_a = malloc(sizeof(t_stack));
-	if (stk_a == NULL)
-		return (1);
-	stk_b = malloc(sizeof(t_stack));
-	if (stk_b == NULL)
+	printf("check %d\narg %d\n", check, argc - 1);
+	if (argc - 1 != check)
 	{
-		free(stk_a);
-		return (1);
+		//return (-1);
 	}
-	if (check_arg == -1)
-		ft_putstr_fd("Error\n", 1);
-	if (init_stacks(stk_a, stk_b, argc, argv))
+	/*while (argv[++x] != NULL)
 	{
-		while (x != stk_a->max_size)
-			printf("%d\n", stk_a->items[++x]);
-		printf("we can begin\n");
-		swap_a(stk_a);
-	}
+		y = 0;
+		if (argv[x][0] == '\0')
+		{
+			ft_putstr_fd("Error\n", 0);
+			return (-1);
+		}
+		while (argv[x][y])
+		{
+			printf("%c\n", argv[x][y]);
+			while (ft_iswhitespace(argv[x][y]) && argv[x][y] != '\0')
+				y++;
+			if ((argv[x][y] != '\0' && ft_isdigit(argv[x][y]) == 0)
+					|| (argv[x][y] == '-' && ft_isdigit(argv[x][y + 1]) == 0))
+			{
+				ft_putstr_fd("Error\n", 0);
+				return (-1);
+			}
+			y++;
+		}
+	}*/
 	return (0);
 }
