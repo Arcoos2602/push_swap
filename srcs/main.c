@@ -6,12 +6,16 @@
 /*   By: tcordonn <tcordonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/15 10:33:43 by tcordonn          #+#    #+#             */
-/*   Updated: 2021/08/26 21:29:14 by tcordonn         ###   ########.fr       */
+/*   Updated: 2021/08/31 15:52:06 by tcordonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
+
+// gerer les negatifs
+// gerer int max
+ 
 void	print_stack(t_stack *stk)
 {
 	int x;
@@ -25,12 +29,14 @@ void	end(t_stack *stk_a, t_stack *stk_b)
 {
 	if (stk_a != NULL)
 	{
-		free(stk_a->items);
+		if (stk_a->items != NULL)
+			free(stk_a->items);
 		free(stk_a);
 	}
 	if (stk_b != NULL)
 	{
-		free(stk_b->items);
+		if (stk_b->items != NULL)
+			free(stk_b->items);
 		free(stk_b);
 	}
 	exit(EXIT_FAILURE);
@@ -41,11 +47,7 @@ int		main(int argc, char **argv) // check les doublons
 	t_stack		*stk_a;
 	t_stack		*stk_b;
 
-	/*if (check_arg(argv, argc) == -1)
-	{
-		ft_putstr_fd("Error\n", 0);
-		return (1);
-	}*/
+	(void)argc;
 	stk_b = NULL;
 	stk_a = malloc(sizeof(t_stack));
 	if (stk_a == NULL)
@@ -53,13 +55,16 @@ int		main(int argc, char **argv) // check les doublons
 	stk_b = malloc(sizeof(t_stack));
 	if (stk_b == NULL)
 		end(stk_a, stk_b);
-	if (init_stacks(stk_a, stk_b, argv))
+	if (!(init_stacks(stk_a, stk_b, argv)))
 	{
-		//is_sort(); à coder
-		printf("we can begin\n");
-		swap_a(stk_a);
-		swap_a(stk_a);
-		print_stack(stk_a);
+		ft_putstr_fd("Error\n", 2);
+		end(stk_a, stk_b);
+		return (1);
 	}
+	/*is_sort(); à coder
+	printf("we can begin\n");
+	swap_a(stk_a);
+	swap_a(stk_a);
+	print_stack(stk_a);*/
 	return (0);
 }
