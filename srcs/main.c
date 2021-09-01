@@ -6,16 +6,15 @@
 /*   By: tcordonn <tcordonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/15 10:33:43 by tcordonn          #+#    #+#             */
-/*   Updated: 2021/08/31 15:52:06 by tcordonn         ###   ########.fr       */
+/*   Updated: 2021/09/01 10:12:23 by tcordonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-
 // gerer les negatifs
 // gerer int max
- 
+
 void	print_stack(t_stack *stk)
 {
 	int x;
