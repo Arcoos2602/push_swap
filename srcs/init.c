@@ -6,7 +6,7 @@
 /*   By: tcordonn <tcordonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 15:32:36 by tcordonn          #+#    #+#             */
-/*   Updated: 2021/09/01 16:57:56 by tcordonn         ###   ########.fr       */
+/*   Updated: 2021/09/02 11:50:55 by tcordonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,11 +108,11 @@ int	init_stacks(t_stack *stk_a, t_stack *stk_b, char **argv)
 
 	stk_a->items = NULL;
 	stk_b->items = NULL;
+	stk_a->max_size = 0;
 	x = 0;
 	y = 0;
 	if (!(max_size(stk_a, argv)))
 		return (0);
-	exit (0);
 	stk_a->items = malloc(sizeof(int) * stk_a->max_size);
 	if (stk_a->items == NULL)
 		return (0);
