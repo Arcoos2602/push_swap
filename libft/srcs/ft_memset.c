@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memset.c                                           :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbabeau <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tcordonn <tcordonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 10:41:43 by gbabeau           #+#    #+#             */
-/*   Updated: 2019/10/14 14:41:56 by gbabeau          ###   ########.fr       */
+/*   Created: 2019/10/07 15:18:27 by tcordonn          #+#    #+#             */
+/*   Updated: 2019/10/09 11:31:51 by tcordonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	unsigned char *pont;
+	unsigned char	*ptr;
 
-	pont = s;
+	ptr = s;
 	while (n--)
-		*pont++ = (unsigned char)c;
+		*ptr++ = c;
 	return (s);
 }

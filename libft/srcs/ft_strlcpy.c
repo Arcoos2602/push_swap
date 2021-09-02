@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbabeau <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tcordonn <tcordonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/08 17:43:20 by gbabeau           #+#    #+#             */
-/*   Updated: 2019/10/16 18:18:12 by gbabeau          ###   ########.fr       */
+/*   Created: 2019/10/08 17:34:58 by tcordonn          #+#    #+#             */
+/*   Updated: 2019/10/16 13:49:29 by tcordonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t n)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	size_t	nb;
+	unsigned int	i;
 
-	nb = 0;
+	i = 0;
 	if (src)
 	{
-		while (nb + 1 < n && src[nb] != '\0')
+		while (src[i] != '\0' && i + 1 < size)
 		{
-			dest[nb] = src[nb];
-			nb++;
+			dst[i] = src[i];
+			++i;
 		}
-		if (nb < n)
-			dest[nb] = '\0';
-		while (src[nb] != '\0')
-			nb++;
+		if (i < size)
+			dst[i] = '\0';
+		while (src[i] != '\0')
+			++i;
 	}
-	return (nb);
+	return (i);
 }

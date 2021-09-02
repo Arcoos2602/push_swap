@@ -5,38 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcordonn <tcordonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/17 12:25:01 by gbabeau           #+#    #+#             */
-/*   Updated: 2021/03/04 10:39:41 by tcordonn         ###   ########.fr       */
+/*   Created: 2019/10/11 11:38:24 by tcordonn          #+#    #+#             */
+/*   Updated: 2019/10/24 15:35:14 by tcordonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int		tail1;
-	int		tail2;
-	char	*dst;
+	int		i;
+	int		j;
+	char	*string;
 
-	if (s1 == 0 || s2 == 0)
+	i = -1;
+	j = -1;
+	if (s2 == 0 || s1 == 0)
 		return (NULL);
-	tail1 = ft_strlen((char*)s1);
-	tail2 = ft_strlen((char*)s2);
-	if (!(dst = malloc(tail1 + tail2 + 2)))
-		return (0);
-	tail1 = 0;
-	tail2 = 0;
-	while (s1[tail1] != '\0')
-	{
-		dst[tail1] = s1[tail1];
-		tail1++;
-	}
-	dst[tail1++] = '/';
-	while (s2[tail2] != '\0')
-	{
-		dst[tail2 + tail1] = s2[tail2];
-		tail2++;
-	}
-	dst[tail1 + tail2] = '\0';
-	return (dst);
+	string = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	if (string == NULL)
+		return (NULL);
+	while (s1[++i] != '\0')
+		string[i] = s1[i];
+	while (s2[++j] != '\0')
+		string[j + i] = s2[j];
+	string[i + j] = '\0';
+	return (string);
 }

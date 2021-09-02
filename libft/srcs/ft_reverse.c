@@ -1,18 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iswhitespace.c                                  :+:      :+:    :+:   */
+/*   ft_reverse.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/11 15:53:39 by thomas            #+#    #+#             */
-/*   Updated: 2021/05/21 10:50:24 by thomas           ###   ########.fr       */
+/*   Created: 2020/05/12 10:17:54 by thomas            #+#    #+#             */
+/*   Updated: 2020/05/12 10:23:59 by thomas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_iswhitespace(char c)
+#include "../includes/libft.h"
+
+void	ft_reverse(char *s)
 {
-	if (c == ' ')
-		return (1);
-	return (0);
+	int		i;
+	int		j;
+	char	c;
+
+	i = 0;
+	j = ft_strlen(s) - 1;
+	while (i < j)
+	{
+		c = s[i];
+		s[i] = s[j];
+		s[j] = c;
+		i++;
+		j--;
+	}
 }

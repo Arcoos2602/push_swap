@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isalum.c                                           :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbabeau <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/09 12:08:40 by gbabeau           #+#    #+#             */
-/*   Updated: 2019/10/14 14:52:30 by gbabeau          ###   ########.fr       */
+/*   Created: 2019/10/07 18:19:17 by tcordonn          #+#    #+#             */
+/*   Updated: 2021/05/21 10:50:03 by thomas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 int	ft_isalnum(int c)
 {
-	if (ft_isalpha(c) || ft_isdigit(c))
+	if (ft_isdigit(c) || ft_isalpha(c))
 		return (1);
-	return (0);
+	else
+		return (0);
 }

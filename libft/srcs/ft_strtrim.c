@@ -3,77 +3,75 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbabeau <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/08 14:11:16 by gbabeau           #+#    #+#             */
-/*   Updated: 2019/10/18 11:32:02 by gbabeau          ###   ########.fr       */
+/*   Created: 2019/10/11 14:12:48 by tcordonn          #+#    #+#             */
+/*   Updated: 2021/05/21 11:28:31 by thomas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
-static int		debut(char const *s1, char const *set)
+static int	ft_begin(char const *s1, char const *set)
 {
 	int		i;
-	int		deb;
+	int		begin;
 
 	i = 0;
-	deb = 0;
-	while (set[i] && s1[deb] != '\0')
+	begin = 0;
+	while (set[i] && s1[begin] != '\0')
 	{
 		i = 0;
-		while (set[i] != s1[deb] && set[i] != '\0')
+		while (set[i] != s1[begin] && set[i] != '\0')
 			i++;
-		if (set[i] == s1[deb])
-			deb++;
+		if (set[i] == s1[begin])
+			begin++;
 	}
-	return (deb);
+	return (begin);
 }
 
-static int		fin(char const *s1, char const *set)
+static int	ft_end(char const *s1, char const *set)
 {
-	int		tail;
+	int		len;
 	int		i;
 
-	tail = 0;
-	while (s1[tail] != '\0')
-		tail++;
-	tail--;
+	len = 0;
+	len = ft_strlen(s1) - 1;
 	i = 0;
-	while (set[i] && tail >= 0)
+	while (set[i] && len >= 0)
 	{
 		i = 0;
-		while (set[i] != s1[tail] && set[i] != '\0')
+		while (set[i] != s1[len] && set[i] != '\0')
 			i++;
-		if (set[i] == s1[tail])
-			tail--;
+		if (set[i] == s1[len])
+			len--;
 	}
-	return (tail);
+	return (len);
 }
 
-char			*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*s;
-	int		d;
-	int		f;
+	int		b;
+	int		e;
 	int		i;
 
 	i = 0;
 	if (!s1)
 		return (0);
-	f = fin(s1, set);
-	d = debut(s1, set);
-	if (f - d < 0)
+	e = ft_end(s1, set);
+	b = ft_begin(s1, set);
+	if (e - b < 0)
 	{
-		if (!(s = ft_calloc(1, 1)))
-			return (0);
+		s = ft_calloc(1, 1);
 		return (s);
 	}
-	if (!(s = malloc(f - d + 2)))
-		return (0);
-	while (f - d >= i)
+	s = malloc(e - b + 2);
+	if (s == NULL)
+		return (NULL);
+	while (e - b >= i)
 	{
-		s[i] = s1[i + d];
+		s[i] = s1[i + b];
 		i++;
 	}
 	s[i] = '\0';

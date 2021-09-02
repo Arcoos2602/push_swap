@@ -1,18 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_convert_base2.c                                 :+:      :+:    :+:   */
+/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbabeau <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/17 21:32:39 by gbabeau           #+#    #+#             */
-/*   Updated: 2020/02/01 12:13:18 by gbabeau          ###   ########.fr       */
+/*   Created: 2020/07/25 15:32:26 by tcordonn          #+#    #+#             */
+/*   Updated: 2021/05/21 10:48:36 by thomas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int				verification_atoi(char *base)
+int	verification_atoi(char *base)
 {
 	unsigned int	nb;
 	unsigned int	compt;
@@ -30,14 +28,14 @@ int				verification_atoi(char *base)
 		compt = 0;
 		nb++;
 		if (((base[nb] >= 9 && base[nb] <= 13)
-			|| (base[nb] == '-' || base[nb] == '+' || base[nb] == ' '))
-				&& base[nb] != '\0')
+				|| (base[nb] == '-' || base[nb] == '+' || base[nb] == ' '))
+			&& base[nb] != '\0')
 			return (0);
 	}
 	return (nb);
 }
 
-static int		signe(char *str, unsigned int *nb)
+static int	signe(char *str, unsigned int *nb)
 {
 	unsigned int	i;
 	unsigned int	a;
@@ -56,7 +54,7 @@ static int		signe(char *str, unsigned int *nb)
 	return (i);
 }
 
-static int		position(char str, char *base)
+static int	position(char str, char *base)
 {
 	int	bs;
 

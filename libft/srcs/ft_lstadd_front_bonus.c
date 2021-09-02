@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbabeau <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tcordonn <tcordonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/18 11:40:51 by gbabeau           #+#    #+#             */
-/*   Updated: 2019/10/18 11:40:55 by gbabeau          ###   ########.fr       */
+/*   Created: 2019/10/19 12:23:54 by tcordonn          #+#    #+#             */
+/*   Updated: 2019/10/19 14:27:23 by tcordonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 void	ft_lstadd_front(t_list **alst, t_list *new)
 {
-	if (!new || !alst)
+	if (!alst || !new)
 		return ;
 	new->next = *alst;
 	*alst = new;

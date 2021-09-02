@@ -1,12 +1,14 @@
 NAME = push_swap
-HEAD = -I./includes/ -I./libft/include
+HEAD = -I./includes/ -I./libft/includes
 
 CFLAGS = -Wall -Werror -Wextra
 
 SRCS =  srcs/main.c \
 		srcs/init.c \
 		srcs/push.c \
-		srcs/swap.c
+		srcs/swap.c \
+		srcs/init2.c \
+		srcs/rotate.c
 
 
 OBJS = $(SRCS:.c=.o)

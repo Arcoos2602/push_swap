@@ -3,52 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcordonn <tcordonn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/11 10:55:56 by gbabeau           #+#    #+#             */
-/*   Updated: 2021/05/15 10:51:39 by tcordonn         ###   ########.fr       */
+/*   Created: 2019/10/09 09:56:05 by tcordonn          #+#    #+#             */
+/*   Updated: 2021/05/21 10:47:41 by thomas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
-
-static int		signe(char *str, int *nb)
+int	ft_atoi(const char *nptr)
 {
-	int	i;
-	int	a;
+	int	res;
+	int	sign;
 
-	i = 1;
-	a = 0;
-	while (str[a] == ' ' || (str[a] >= 9 && str[a] <= 13))
-		a++;
-	if (str[a] == '-' || str[a] == '+')
+	sign = 1;
+	res = 0;
+	while (*nptr && (*nptr == ' ' || *nptr == '\n' || *nptr == '\t'
+			|| *nptr == '\v' || *nptr == '\f' || *nptr == '\r'))
+		nptr++;
+	if (*nptr == '-')
+		sign = -1;
+	if (*nptr == '-' || *nptr == '+')
+		nptr++;
+	while (*nptr && *nptr >= '0' && *nptr <= '9')
 	{
-		if (str[a] == '-')
-			i *= -1;
-		a++;
+		res = res * 10 + (*nptr - 48);
+		nptr++;
 	}
-	*nb = a;
-	return (i);
-}
-
-int				ft_atoi(const char *str)
-{
-	int	nb;
-	int	i;
-	int	renvoie;
-	int	nombre;
-
-	nb = 0;
-	i = signe((char*)str, &nb);
-	nombre = 0;
-	renvoie = 0;
-	while ('0' <= str[nb] && '9' >= str[nb])
-	{
-		nombre = str[nb] - 48;
-		renvoie = renvoie + nombre;
-		nb++;
-		if ('0' <= str[nb] && '9' >= str[nb])
-			renvoie *= 10;
-	}
-	return (i * renvoie);
+	return (res * sign);
 }
