@@ -12,7 +12,7 @@
 
 #include "../includes/push_swap.h"
 
-int		swap_a(t_stack	*stk_a)
+int	swap_a(t_stack	*stk_a)
 {
 	int		top;
 
@@ -26,12 +26,11 @@ int		swap_a(t_stack	*stk_a)
 	return (1);
 }
 
-int		swap_b(t_stack	*stk_b)
+int	swap_b(t_stack	*stk_b)
 {
 	int		top;
 
 	top = stk_b->top;
-	
 	if (stk_b->top > stk_b->max_size - 2)
 		return (0);
 	stk_b->items[top] = stk_b->items[top] + stk_b->items[top + 1];

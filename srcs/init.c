@@ -12,7 +12,7 @@
 
 #include "../includes/push_swap.h"
 
-int max_size(t_stack *stk_a, char **argv)
+int	max_size(t_stack *stk_a, char	**argv)
 {
 	int	x;
 	int	y;
@@ -26,19 +26,7 @@ int max_size(t_stack *stk_a, char **argv)
 			return (0);
 		while (argv[x][y] != '\0')
 		{
-			while (ft_iswhitespace(argv[x][y]))
-				y++;
-			if (argv[x][y] != '\0' && (ft_isdigit(argv[x][y]) || argv[x][y] == '-'))
-			{
-				if (argv[x][y] == '-' && ft_isdigit(argv[x][y + 1]) == 0)
-					return (0);
-				else
-					y++;
-				while (ft_isdigit(argv[x][y]))
-					y++;
-				stk_a->max_size++;
-			}
-			else if (argv[x][y] != '\0')
+			if (!(count(stk_a, argv, &x, &y)))
 				return (0);
 		}
 	}
@@ -75,7 +63,7 @@ void	fill(t_stack *stk_a, t_stack *stk_b, char *str, int *y)
 int	init_stacks2(t_stack *stk_a, t_stack *stk_b, char **argv)
 {
 	int	x;
-	int y;
+	int	y;
 
 	x = 0;
 	y = 0;
@@ -86,7 +74,8 @@ int	init_stacks2(t_stack *stk_a, t_stack *stk_b, char **argv)
 		{
 			while (ft_iswhitespace(argv[x][y]))
 				y++;
-			if (argv[x][y] != '\0' && (ft_isdigit(argv[x][y]) || (argv[x][y] == '-')))
+			if (argv[x][y] != '\0' &&
+				(ft_isdigit(argv[x][y]) || (argv[x][y] == '-')))
 			{
 				if (argv[x][y] == '-' && ft_isdigit(argv[x][y + 1]) == 0)
 					return (0);
@@ -123,10 +112,5 @@ int	init_stacks(t_stack *stk_a, t_stack *stk_b, char **argv)
 		stk_a->items[x++] = 0;
 	if (!(init_stacks2(stk_a, stk_b, argv)))
 		return (0);
-	while (stk_a->max_size != x)
-	{
-		printf("stk_a->items[%d] = %d\n", x, stk_a->items[x]);
-		x++;
-	}
 	return (1);
 }

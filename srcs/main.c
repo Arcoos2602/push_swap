@@ -6,18 +6,15 @@
 /*   By: tcordonn <tcordonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/15 10:33:43 by tcordonn          #+#    #+#             */
-/*   Updated: 2021/09/02 17:18:59 by tcordonn         ###   ########.fr       */
+/*   Updated: 2021/09/08 17:25:25 by tcordonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-// gerer les negatifs
-// gerer int max
-
 void	print_stack(t_stack *stk)
 {
-	int x;
+	int	x;
 
 	x = 0;
 	while (x != stk->max_size)
@@ -46,7 +43,7 @@ void	end(t_stack *stk_a, t_stack *stk_b, int check)
 	exit (EXIT_SUCCESS);
 }
 
-int		main(int argc, char **argv) // check int_max int_min
+int	main(int argc, char **argv)
 {
 	t_stack		*stk_a;
 	t_stack		*stk_b;
@@ -62,18 +59,13 @@ int		main(int argc, char **argv) // check int_max int_min
 		end(stk_a, stk_b, 1);
 	if (!(init_stacks(stk_a, stk_b, argv)))
 		end(stk_a, stk_b, 1);
-	printf("aaaa\n");
-	print_stack(stk_a);
-	printf("bbbb\n");
-	print_stack(stk_b);
-	rotate_a(stk_a);
-	printf("aaaa\n");
-	print_stack(stk_a);
-	r_rotate_a(stk_a);
-	printf("aaaa\n");
-	print_stack(stk_a);
-	printf("bbbb\n");
-	print_stack(stk_b);
-	end (stk_a, stk_b, 0);
-	return (0);
+    if (is_sort(stk_a))
+		end (stk_a, stk_b, 0);
+	if (!(simplify_stack_a(stk_a)))
+		return (-1);
+	if (stk_a->max_size <= 5)
+		sort_small_stack(stk_a, stk_b);
+	else
+		sort_big_stack(stk_a, stk_b);
+	end(stk_a, stk_b, 0);
 }

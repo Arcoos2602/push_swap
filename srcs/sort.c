@@ -1,0 +1,96 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tcordonn <tcordonn@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/08 14:08:49 by tcordonn          #+#    #+#             */
+/*   Updated: 2021/09/08 17:25:01 by tcordonn         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/push_swap.h"
+
+void	sort(int *simp, int max_size)
+{
+	int i,c;
+	int j;
+
+	i = 0;
+	while (i < max_size)
+	{
+		j = i + 1;
+		while (j < max_size)
+		{
+			if (simp[i] > simp[j])
+			{
+				c = simp[i];
+            	simp[i] = simp[j];
+            	simp[j] = c;
+			}
+			j++;
+		}
+		i++;
+	}
+}
+
+int	simplify_stack_a(t_stack *stk)
+{
+	int	i;
+	int	j;
+	int	*simp;
+
+	i = -1;
+	simp = malloc(sizeof(int) * stk->max_size);
+	if (simp == NULL)
+		return (0);
+	while (++i != stk->max_size)
+		simp[i] = stk->items[i];
+	sort(simp, stk->max_size);
+	i = 0;
+	while (i < stk->max_size)
+	{
+		j = 0;
+		while (j < stk->max_size)
+		{
+			if (stk->items[i] == simp[j])
+				stk->items[i] = j;
+			j++;
+		}
+		i++;
+	}
+	free(simp);
+	return (1);
+}
+
+int is_sort(t_stack *stk)
+{
+	int i;
+	int	x;
+
+	x = 0;
+	i = 0;
+	while (i != stk->max_size)
+	{
+		x = i + 1;
+		while (x != stk->max_size && stk->items[i] < stk->items[x])
+			x++;
+		if (x != stk->max_size && stk->items[i] > stk->items[x])
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+void sort_small_stack(t_stack *stk_a, t_stack *stk_b)
+{
+	(void)stk_a;
+	(void)stk_b;
+}
+
+void sort_big_stack(t_stack *stk_a, t_stack *stk_b)
+{
+	(void)stk_a;
+	(void)stk_b;
+}
