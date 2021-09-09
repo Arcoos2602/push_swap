@@ -6,7 +6,7 @@
 /*   By: tcordonn <tcordonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/15 10:33:43 by tcordonn          #+#    #+#             */
-/*   Updated: 2021/09/08 17:25:25 by tcordonn         ###   ########.fr       */
+/*   Updated: 2021/09/09 13:10:21 by tcordonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int	main(int argc, char **argv)
 {
 	t_stack		*stk_a;
 	t_stack		*stk_b;
+	int	x = 0;
 
 	if (argc == 1)
 		return (1);
@@ -63,9 +64,15 @@ int	main(int argc, char **argv)
 		end (stk_a, stk_b, 0);
 	if (!(simplify_stack_a(stk_a)))
 		return (-1);
-	if (stk_a->max_size <= 5)
-		sort_small_stack(stk_a, stk_b);
-	else
-		sort_big_stack(stk_a, stk_b);
+	printf("stk_a\n");
+	while (x < stk_a->max_size)
+		printf("%d\n", stk_a->items[x++]);
+	r_rotate_a(stk_a);
+	printf("stk_a\n");
+	x = 0;
+	while (x < stk_a->max_size)
+		printf("%d\n", stk_a->items[x++]);
+	/*if (stk_a->max_size > 5)
+		sort_big_stack(stk_a, stk_b);*/
 	end(stk_a, stk_b, 0);
 }

@@ -6,7 +6,7 @@
 /*   By: tcordonn <tcordonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 14:08:49 by tcordonn          #+#    #+#             */
-/*   Updated: 2021/09/08 17:25:01 by tcordonn         ###   ########.fr       */
+/*   Updated: 2021/09/09 14:04:01 by tcordonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,35 @@ void sort_small_stack(t_stack *stk_a, t_stack *stk_b)
 
 void sort_big_stack(t_stack *stk_a, t_stack *stk_b)
 {
-	(void)stk_a;
-	(void)stk_b;
+	int	max;
+	int	max_bits;
+	int	i;
+	int	j;
+
+	
+	int x = 0;
+	i = 0;
+	j = 0;
+	max = stk_a->max_size - 1;
+	max_bits = 0;
+	while ((max >> max_bits) != 0)
+		max_bits++;
+	while (i < max_bits)
+	{
+		while (j < stk_a->max_size)
+		{
+			if ((stk_a->items[stk_a->top] >> 1)&(1 == 1))
+				rotate_a(stk_a);
+			else
+				push_b(stk_a, stk_b);
+			j++;
+		}
+		while (push_a(stk_a, stk_b))
+			;
+		x = 0;
+		printf("stk_a : \n");
+		while (x < stk_a->max_size)
+			printf("%d\n", stk_a->items[x++]);
+		i++;
+	}
 }
